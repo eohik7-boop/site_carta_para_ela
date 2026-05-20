@@ -8,18 +8,24 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
         
         :root {
-            --primary-black: #0a0a0a;
-            --secondary-black: #1a1a1a;
-            --card-black: #111111;
-            --accent-red: #ff0040;
-            --deep-red: #cc0033;
-            --dark-red: #990026;
-            --neon-red: #ff1744;
-            --gold: #ffd700;
-            --silver: #c0c0c0;
-            --white: #ffffff;
-            --glass-bg: rgba(17, 17, 17, 0.8);
-            --glass-border: rgba(255, 0, 64, 0.3);
+            --primary-black: #fff7e8;
+            --secondary-black: #f8dfc8;
+            --card-black: #fffaf0;
+            --accent-red: #d88c8c;
+            --deep-red: #b96f6f;
+            --dark-red: #8f5f4a;
+            --neon-red: #f2aaa7;
+            --gold: #d9a85c;
+            --silver: #7a604d;
+            --white: #fffdf8;
+            --glass-bg: rgba(255, 250, 240, 0.82);
+            --glass-border: rgba(176, 119, 88, 0.32);
+            --forest-green: #9fbf8f;
+            --soft-green: #d9ead1;
+            --cottage-brown: #9b6f52;
+            --cream: #fff3dc;
+            --blush: #f7c8c8;
+            --sky: #cde7f0;
             
             /* Variável para o nome - MUDE AQUI! */
             --girlfriend-name: "Sarah"; /* ← COLOQUE O NOME AQUI */
@@ -33,11 +39,47 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 50%, #2a0a0a 100%);
+            background: linear-gradient(180deg, #cde7f0 0%, #fff7e8 36%, #f8dfc8 72%, #d9ead1 100%);
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
             cursor: none;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background:
+                radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.75) 0 45px, transparent 46px),
+                radial-gradient(circle at 24% 15%, rgba(255, 255, 255, 0.55) 0 36px, transparent 37px),
+                radial-gradient(circle at 76% 20%, rgba(255, 255, 255, 0.72) 0 48px, transparent 49px),
+                radial-gradient(circle at 89% 17%, rgba(255, 255, 255, 0.52) 0 34px, transparent 35px),
+                linear-gradient(135deg, transparent 0 70%, rgba(159, 191, 143, 0.48) 70% 100%);
+            opacity: 0.9;
+        }
+
+        body::after {
+            content: '🐰  🏡  🧺  🌼  🐻  🍓  🐿️  🌷';
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 18px;
+            z-index: 0;
+            pointer-events: none;
+            text-align: center;
+            font-size: clamp(1.35rem, 4vw, 3rem);
+            letter-spacing: clamp(8px, 2.6vw, 30px);
+            opacity: 0.22;
+            filter: saturate(0.85);
+            animation: sylvanian-drift 9s ease-in-out infinite;
+        }
+
+        @keyframes sylvanian-drift {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         /* Cursor personalizado dark */
@@ -45,26 +87,26 @@
             position: fixed;
             width: 20px;
             height: 20px;
-            background: radial-gradient(circle, var(--accent-red), var(--deep-red));
+            background: radial-gradient(circle, #f7c8c8, #d9a85c);
             border-radius: 50%;
             pointer-events: none;
             z-index: 9999;
             transition: transform 0.1s ease;
-            box-shadow: 0 0 20px var(--accent-red);
-            border: 2px solid var(--neon-red);
+            box-shadow: 0 0 20px rgba(216, 140, 140, 0.75);
+            border: 2px solid #fff3dc;
         }
 
         .cursor-trail {
             position: fixed;
             width: 6px;
             height: 6px;
-            background: rgba(255, 0, 64, 0.6);
+            background: rgba(216, 168, 92, 0.55);
             border-radius: 50%;
             pointer-events: none;
             z-index: 9998;
         }
 
-        /* Partículas vermelhas */
+        /* Partículas fofinhas estilo Sylvanian */
         .particles {
             position: fixed;
             top: 0;
@@ -79,7 +121,7 @@
             position: absolute;
             width: 3px;
             height: 3px;
-            background: radial-gradient(circle, var(--accent-red), transparent);
+            background: radial-gradient(circle, #f7c8c8, transparent);
             border-radius: 50%;
             animation: float-particle 8s linear infinite;
         }
@@ -98,10 +140,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 0, 64, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(204, 0, 51, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(153, 0, 38, 0.1) 0%, transparent 50%);
+            background:
+                radial-gradient(circle at 18% 62%, rgba(159, 191, 143, 0.36) 0%, transparent 34%),
+                radial-gradient(circle at 82% 25%, rgba(247, 200, 200, 0.34) 0%, transparent 38%),
+                radial-gradient(circle at 45% 88%, rgba(217, 168, 92, 0.22) 0%, transparent 42%),
+                repeating-linear-gradient(45deg, rgba(255,255,255,0.18) 0 12px, transparent 12px 26px);
             animation: wave-move 10s ease-in-out infinite;
             z-index: 2;
         }
@@ -109,6 +152,33 @@
         @keyframes wave-move {
             0%, 100% { transform: scale(1) rotate(0deg); }
             50% { transform: scale(1.2) rotate(3deg); }
+        }
+
+
+        .cottage-scene {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 3;
+            overflow: hidden;
+        }
+
+        .cottage {
+            position: absolute;
+            opacity: 0.24;
+            filter: saturate(0.82) drop-shadow(0 10px 16px rgba(120, 82, 52, 0.18));
+            animation: cozy-float 7s ease-in-out infinite;
+        }
+
+        .cottage-one { left: 5%; bottom: 8%; font-size: clamp(3rem, 9vw, 7rem); }
+        .cottage-two { right: 8%; bottom: 13%; font-size: clamp(2.8rem, 8vw, 6rem); animation-delay: 1s; }
+        .cottage-three { left: 9%; top: 20%; font-size: clamp(2.2rem, 5vw, 4.5rem); animation-delay: 1.7s; }
+        .cottage-four { right: 14%; top: 28%; font-size: clamp(2rem, 4vw, 3.8rem); animation-delay: 2.3s; }
+        .cottage-five { left: 48%; bottom: 5%; font-size: clamp(2rem, 5vw, 4rem); animation-delay: 2.8s; }
+
+        @keyframes cozy-float {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-14px) rotate(2deg); }
         }
 
         /* Container principal */
@@ -191,19 +261,19 @@
         /* Card principal dark theme melhorado */
         .love-card {
             background: linear-gradient(135deg, 
-                rgba(17, 17, 17, 0.95) 0%, 
-                rgba(26, 26, 26, 0.9) 50%, 
-                rgba(17, 17, 17, 0.95) 100%);
+                rgba(255, 250, 240, 0.96) 0%, 
+                rgba(255, 243, 220, 0.9) 50%, 
+                rgba(255, 250, 240, 0.96) 100%);
             backdrop-filter: blur(30px);
             border-radius: 25px;
             padding: 50px 40px;
             margin: 40px 0;
             box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.8),
-                inset 0 1px 0 rgba(255, 0, 64, 0.3),
-                0 0 40px rgba(255, 0, 64, 0.15),
+                0 20px 60px rgba(120, 82, 52, 0.18),
+                inset 0 1px 0 rgba(176, 119, 88, 0.28),
+                0 0 40px rgba(217, 168, 92, 0.22),
                 inset 0 -1px 0 rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 0, 64, 0.4);
+            border: 1px solid rgba(176, 119, 88, 0.34);
             animation: card-float 8s ease-in-out infinite;
             text-align: center;
             position: relative;
@@ -213,11 +283,11 @@
         .love-card:hover {
             transform: translateY(-5px) scale(1.01);
             box-shadow: 
-                0 30px 80px rgba(0, 0, 0, 0.9),
-                inset 0 1px 0 rgba(255, 0, 64, 0.4),
-                0 0 60px rgba(255, 0, 64, 0.25),
+                0 30px 80px rgba(120, 82, 52, 0.24),
+                inset 0 1px 0 rgba(176, 119, 88, 0.34),
+                0 0 60px rgba(217, 168, 92, 0.28),
                 inset 0 -1px 0 rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 0, 64, 0.6);
+            border-color: rgba(216, 140, 140, 0.44);
         }
 
         @keyframes card-float {
@@ -233,10 +303,10 @@
             right: 0;
             bottom: 0;
             background: linear-gradient(135deg, 
-                rgba(255, 0, 64, 0.1) 0%, 
+                rgba(247, 200, 200, 0.32) 0%, 
                 transparent 30%, 
                 transparent 70%, 
-                rgba(255, 0, 64, 0.1) 100%);
+                rgba(247, 200, 200, 0.32) 100%);
             border-radius: 25px;
             z-index: -1;
             animation: subtle-glow 6s ease-in-out infinite alternate;
@@ -274,8 +344,8 @@
         }
 
         @keyframes message-glow {
-            0% { text-shadow: 0 0 10px rgba(192, 192, 192, 0.3); }
-            100% { text-shadow: 0 0 20px rgba(192, 192, 192, 0.6), 0 0 30px rgba(255, 0, 64, 0.2); }
+            0% { text-shadow: 0 0 10px rgba(122, 96, 77, 0.16); }
+            100% { text-shadow: 0 0 20px rgba(122, 96, 77, 0.28), 0 0 30px rgba(247, 200, 200, 0.36); }
         }
 
         /* Botão dark theme */
@@ -293,10 +363,10 @@
             transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             margin: 40px 0;
             box-shadow: 
-                0 15px 35px rgba(255, 0, 64, 0.4),
+                0 15px 35px rgba(176, 119, 88, 0.34),
                 inset 0 1px 0 rgba(255, 255, 255, 0.2);
             animation: btn-pulse 3s ease-in-out infinite;
-            border: 2px solid var(--neon-red);
+            border: 2px solid #fff3dc;
         }
 
         .surprise-btn::before {
@@ -317,13 +387,13 @@
         .surprise-btn:hover {
             transform: translateY(-5px) scale(1.05);
             box-shadow: 
-                0 25px 50px rgba(255, 0, 64, 0.6),
+                0 25px 50px rgba(216, 140, 140, 0.44),
                 0 0 30px var(--gold);
         }
 
         @keyframes btn-pulse {
-            0%, 100% { box-shadow: 0 15px 35px rgba(255, 0, 64, 0.4); }
-            50% { box-shadow: 0 15px 35px rgba(255, 0, 64, 0.6), 0 0 20px var(--gold); }
+            0%, 100% { box-shadow: 0 15px 35px rgba(176, 119, 88, 0.34); }
+            50% { box-shadow: 0 15px 35px rgba(216, 140, 140, 0.44), 0 0 20px var(--gold); }
         }
 
 
@@ -393,13 +463,13 @@
             margin: 18px auto 0;
             padding: 26px;
             width: min(620px, 92vw);
-            background: rgba(17, 17, 17, 0.86);
+            background: rgba(255, 250, 240, 0.94);
             border: 1px solid rgba(255, 0, 64, 0.45);
             border-radius: 24px;
             color: var(--white);
             font-size: 1.2rem;
             line-height: 1.7;
-            box-shadow: 0 20px 55px rgba(0, 0, 0, 0.75), 0 0 35px rgba(255, 0, 64, 0.25);
+            box-shadow: 0 20px 55px rgba(0, 0, 0, 0.75), 0 0 35px rgba(217, 168, 92, 0.28);
             animation: slideUp 0.65s ease forwards;
         }
 
@@ -462,14 +532,14 @@
             border-radius: 20px;
             padding: 8px;
             box-shadow: 
-                0 15px 35px rgba(0, 0, 0, 0.8),
-                inset 0 1px 0 rgba(255, 0, 64, 0.3),
-                0 0 25px rgba(255, 0, 64, 0.1);
+                0 15px 35px rgba(120, 82, 52, 0.18),
+                inset 0 1px 0 rgba(176, 119, 88, 0.28),
+                0 0 25px rgba(247, 200, 200, 0.32);
             position: relative;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             animation: frame-float 5s ease-in-out infinite;
-            border: 1px solid rgba(255, 0, 64, 0.4);
+            border: 1px solid rgba(176, 119, 88, 0.34);
         }
 
         .photo-frame:nth-child(1) { animation-delay: 0s; }
@@ -501,9 +571,9 @@
             right: 0;
             bottom: 0;
             background: linear-gradient(135deg, 
-                rgba(255, 0, 64, 0.2) 0%, 
+                rgba(247, 200, 200, 0.36) 0%, 
                 transparent 50%, 
-                rgba(255, 0, 64, 0.2) 100%);
+                rgba(247, 200, 200, 0.36) 100%);
             border-radius: 20px;
             opacity: 0;
             transition: all 0.4s ease;
@@ -523,8 +593,8 @@
         .photo-frame:hover {
             transform: translateY(-10px) scale(1.05);
             box-shadow: 
-                0 25px 50px rgba(0, 0, 0, 0.9),
-                0 0 40px rgba(255, 0, 64, 0.4),
+                0 25px 50px rgba(120, 82, 52, 0.24),
+                0 0 40px rgba(176, 119, 88, 0.34),
                 inset 0 1px 0 rgba(255, 0, 64, 0.5);
             border-color: rgba(255, 0, 64, 0.8);
         }
@@ -544,9 +614,9 @@
             color: var(--accent-red);
             text-align: center;
             background: linear-gradient(135deg, 
-                rgba(17, 17, 17, 0.9) 0%, 
-                rgba(26, 26, 26, 0.95) 50%, 
-                rgba(17, 17, 17, 0.9) 100%);
+                rgba(255, 250, 240, 0.94) 0%, 
+                rgba(255, 243, 220, 0.95) 50%, 
+                rgba(255, 250, 240, 0.94) 100%);
         }
 
         .photo-frame[data-fallback] small {
@@ -580,7 +650,7 @@
             height: 100%;
             background: linear-gradient(90deg, 
                 transparent, 
-                rgba(255, 0, 64, 0.1), 
+                rgba(247, 200, 200, 0.32), 
                 rgba(255, 215, 0, 0.1), 
                 transparent);
             animation: message-wave 4s ease-in-out infinite;
@@ -596,7 +666,7 @@
             transform: translateY(0) scale(1);
             box-shadow: 
                 0 25px 50px rgba(0, 0, 0, 0.7),
-                0 0 40px rgba(255, 0, 64, 0.2);
+                0 0 40px rgba(247, 200, 200, 0.36);
         }
 
         .special-message h3 {
@@ -697,7 +767,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--primary-black), var(--secondary-black));
+            background: linear-gradient(180deg, #cde7f0, #fff7e8, #f8dfc8);
             z-index: 10000;
             display: flex;
             align-items: center;
@@ -719,6 +789,100 @@
 
         @keyframes fadeOut {
             to { opacity: 0; visibility: hidden; }
+        }
+
+
+
+        /* Botão da música feita por mim */
+        .made-for-you-section {
+            text-align: center;
+            margin: 55px auto 25px;
+            position: relative;
+            z-index: 20;
+        }
+
+        .made-for-you-btn {
+            background: linear-gradient(45deg, var(--gold), var(--accent-red), var(--deep-red));
+            color: var(--white);
+            border: 2px solid var(--gold);
+            padding: 22px 42px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            border-radius: 999px;
+            cursor: pointer;
+            box-shadow: 0 18px 45px rgba(255, 0, 64, 0.42), 0 0 22px rgba(255, 215, 0, 0.28);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: btn-pulse 3s ease-in-out infinite;
+        }
+
+        .made-for-you-btn:hover {
+            transform: translateY(-5px) scale(1.04);
+            box-shadow: 0 25px 60px rgba(255, 0, 64, 0.62), 0 0 35px rgba(255, 215, 0, 0.45);
+        }
+
+        .music-video-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9994;
+            background: rgba(0, 0, 0, 0.86);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .music-video-overlay.show {
+            display: flex;
+            animation: fadeVideoIn 0.45s ease forwards;
+        }
+
+        .music-video-card {
+            width: min(920px, 94vw);
+            border-radius: 26px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 0, 64, 0.5);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.85), 0 0 45px rgba(255, 0, 64, 0.32);
+            background: rgba(255, 250, 240, 0.96);
+            position: relative;
+        }
+
+        .music-video-card video {
+            width: 100%;
+            height: min(70vh, 620px);
+            object-fit: cover;
+            display: block;
+            background: #000;
+        }
+
+        .music-video-caption {
+            padding: 18px 22px 22px;
+            color: var(--silver);
+            text-align: center;
+            font-size: 1.05rem;
+            line-height: 1.55;
+        }
+
+        .music-video-close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            z-index: 2;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(0, 0, 0, 0.55);
+            color: var(--white);
+            cursor: pointer;
+            font-size: 1.35rem;
+            line-height: 1;
+        }
+
+        @keyframes fadeVideoIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Responsivo melhorado - Mobile First */
@@ -834,12 +998,62 @@
             from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+
+        /* Ajustes finais: tema Sylvanian Families / casinha aconchegante */
+        .header h1, .love-card h2, .special-message h3 {
+            background: linear-gradient(45deg, #8f5f4a, #d9a85c, #d88c8c, #9fbf8f);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p, .love-message, .special-message p, .footer, .modal-letter-hint, .music-video-caption {
+            color: #7a604d;
+        }
+
+        .love-card, .special-message, .modal-letter-text, .music-video-card {
+            background: linear-gradient(135deg, rgba(255, 250, 240, 0.94), rgba(255, 243, 220, 0.9));
+            border-color: rgba(155, 111, 82, 0.28);
+            box-shadow: 0 22px 58px rgba(120, 82, 52, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.72), 0 0 34px rgba(217, 168, 92, 0.18);
+        }
+
+        .photo-frame {
+            background: linear-gradient(135deg, #fffaf0, #f8dfc8);
+            border-color: rgba(155, 111, 82, 0.28);
+            box-shadow: 0 16px 35px rgba(120, 82, 52, 0.16), inset 0 1px 0 rgba(255,255,255,0.8), 0 0 22px rgba(217,168,92,0.12);
+        }
+
+        .surprise-btn, .made-for-you-btn, .modal-close {
+            background: linear-gradient(45deg, #d88c8c, #d9a85c, #9fbf8f);
+            border-color: rgba(255, 250, 240, 0.9);
+            color: #fffdf8;
+            text-shadow: 0 1px 2px rgba(120, 82, 52, 0.26);
+            box-shadow: 0 16px 36px rgba(155, 111, 82, 0.24), 0 0 22px rgba(247, 200, 200, 0.28);
+        }
+
+        .footer::before, .header::before {
+            background: linear-gradient(90deg, transparent, #d9a85c, #d88c8c, #9fbf8f, transparent);
+        }
+
+        .heart-beat {
+            color: #d88c8c;
+            filter: drop-shadow(0 0 8px rgba(216, 140, 140, 0.48));
+        }
+
     </style>
 </head>
 <body>
 
     <audio id="bg-music" loop>
         <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="my-music">
+        <source src="minhamusica.mp3" type="audio/mpeg">
+        <source src="minhamusica.wav" type="audio/wav">
+        <source src="minhamusica.ogg" type="audio/ogg">
     </audio>
 
     <!-- Overlay de loading -->
@@ -855,6 +1069,15 @@
     
     <!-- Efeito de ondas -->
     <div class="wave-bg"></div>
+
+    <!-- Cenário aconchegante inspirado em casinhas Sylvanian -->
+    <div class="cottage-scene" aria-hidden="true">
+        <span class="cottage cottage-one">🏡</span>
+        <span class="cottage cottage-two">🌳</span>
+        <span class="cottage cottage-three">🐰</span>
+        <span class="cottage cottage-four">🌼</span>
+        <span class="cottage cottage-five">🧸</span>
+    </div>
 
     <div class="container">
         <header class="header">
@@ -903,6 +1126,12 @@
             </div>
         </section>
 
+        <div class="made-for-you-section">
+            <button class="made-for-you-btn" onclick="playMySong()">
+                🎵 Fiz pensando em você
+            </button>
+        </div>
+
         <footer class="footer">
             <p>Criado com todo <span class="heart-beat">❤️</span> do universo</p>
             <p>Para <span class="girlfriend-name"></span>! 💫</p>
@@ -920,6 +1149,19 @@
             <div class="modal-letter-text" id="modalLetterText">
                 <p>Você é meu mundo, essa música é uma dedicatória para você, você não está sozinha, saiba que pode contar comigo e que eu vou te amar todos os dias e cada segundo da minha vida, serei o meu melhor com você, seremos melhores juntos um dia, eu te amo!</p>
                 <button class="modal-close" onclick="closeLetterModal()">Continuar ❤️</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="music-video-overlay" id="musicVideoOverlay">
+        <div class="music-video-card">
+            <button class="music-video-close" onclick="closeMySong()" aria-label="Fechar vídeo">×</button>
+            <video id="loopVideo" loop muted playsinline>
+                <source src="loop.mp4" type="video/mp4">
+                <source src="loop.webm" type="video/webm">
+            </video>
+            <div class="music-video-caption">
+                Essa música foi feita por mim, pensando em você. ❤️
             </div>
         </div>
     </div>
@@ -954,10 +1196,10 @@
             particle.style.animationDelay = Math.random() * 2 + 's';
             
             const redColors = [
-                'rgba(255, 0, 64, 0.8)', 
-                'rgba(204, 0, 51, 0.8)', 
-                'rgba(255, 215, 0, 0.6)', 
-                'rgba(255, 255, 255, 0.4)'
+                'rgba(247, 200, 200, 0.8)',
+                'rgba(217, 168, 92, 0.62)',
+                'rgba(159, 191, 143, 0.62)',
+                'rgba(255, 255, 255, 0.72)'
             ];
             particle.style.background = `radial-gradient(circle, ${redColors[Math.floor(Math.random() * redColors.length)]}, transparent)`;
             
@@ -996,12 +1238,12 @@
             }
 
             // Mudança temporária da cor de fundo
-            document.body.style.background = 'linear-gradient(135deg, #ff0040, #990026, #000000, #ff1744)';
+            document.body.style.background = 'linear-gradient(135deg, #f7c8c8, #fff3dc, #d9ead1, #cde7f0)';
             document.body.style.backgroundSize = '400% 400%';
             document.body.style.animation = 'gradient-shift 2s ease infinite';
 
             setTimeout(() => {
-                document.body.style.background = 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a0a0a 100%)';
+                document.body.style.background = 'linear-gradient(180deg, #cde7f0 0%, #fff7e8 36%, #f8dfc8 72%, #d9ead1 100%)';
                 document.body.style.animation = '';
             }, 4000);
 
@@ -1060,7 +1302,7 @@
                 transform: translate(-50%, -50%);
                 font-size: 4rem;
                 font-weight: bold;
-                background: linear-gradient(45deg, #ff0040, #ffd700, #ff0040);
+                background: linear-gradient(45deg, #d88c8c, #d9a85c, #d88c8c);
                 background-size: 200% 200%;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
@@ -1090,7 +1332,7 @@
                         top: ${startY}px;
                         font-size: ${Math.random() * 2 + 1.5}rem;
                         font-weight: bold;
-                        color: ${Math.random() > 0.5 ? '#ff0040' : '#ffd700'};
+                        color: ${Math.random() > 0.5 ? '#d88c8c' : '#d9a85c'};
                         z-index: 9998;
                         pointer-events: none;
                         animation: te-amo-float 3s ease-out forwards;
@@ -1112,11 +1354,11 @@
                         left: ${Math.random() * 100}%;
                         top: -50px;
                         font-size: 1.2rem;
-                        color: #ff0040;
+                        color: #d88c8c;
                         z-index: 9997;
                         pointer-events: none;
                         animation: te-amo-rain ${Math.random() * 3 + 2}s linear forwards;
-                        text-shadow: 0 0 10px rgba(255, 0, 64, 0.6);
+                        text-shadow: 0 0 10px rgba(216, 140, 140, 0.44);
                     `;
                     document.body.appendChild(miniTeAmo);
                     setTimeout(() => miniTeAmo.remove(), 5000);
@@ -1131,7 +1373,7 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: radial-gradient(circle, rgba(255, 0, 64, 0.1), transparent);
+                background: radial-gradient(circle, rgba(247, 200, 200, 0.32), transparent);
                 z-index: 9996;
                 pointer-events: none;
                 animation: love-pulse 2s ease-in-out;
@@ -1151,7 +1393,7 @@
                     heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
                     heart.style.left = Math.random() * window.innerWidth + 'px';
                     heart.style.top = Math.random() * window.innerHeight + 'px';
-                    heart.style.color = Math.random() > 0.5 ? '#ff0040' : '#ffd700';
+                    heart.style.color = Math.random() > 0.5 ? '#d88c8c' : '#d9a85c';
                     document.body.appendChild(heart);
                     
                     setTimeout(() => heart.remove(), 2000);
@@ -1182,7 +1424,7 @@
                     transform: translate(-50%, -50%);
                     font-size: 3rem;
                     font-weight: bold;
-                    background: linear-gradient(45deg, #ff0040, #ffd700);
+                    background: linear-gradient(45deg, #d88c8c, #d9a85c);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     background-clip: text;
@@ -1213,12 +1455,12 @@
                 top: ${e.clientY - 25}px;
                 width: 50px;
                 height: 50px;
-                border: 2px solid #ff0040;
+                border: 2px solid #d88c8c;
                 border-radius: 50%;
                 pointer-events: none;
                 z-index: 9999;
                 animation: ripple-effect 0.8s ease-out forwards;
-                box-shadow: 0 0 20px rgba(255, 0, 64, 0.6);
+                box-shadow: 0 0 20px rgba(216, 140, 140, 0.44);
             `;
             document.body.appendChild(ripple);
             setTimeout(() => ripple.remove(), 800);
@@ -1275,16 +1517,16 @@
                 position: fixed;
                 top: 20px;
                 right: 20px;
-                background: linear-gradient(45deg, #ff0040, #990026);
+                background: linear-gradient(45deg, #d88c8c, #8f5f4a);
                 color: white;
                 padding: 15px 25px;
                 border-radius: 25px;
                 font-weight: 600;
                 z-index: 9999;
-                box-shadow: 0 10px 30px rgba(255, 0, 64, 0.4);
+                box-shadow: 0 10px 30px rgba(176, 119, 88, 0.34);
                 animation: notification-slide 4s ease-in-out forwards;
                 backdrop-filter: blur(10px);
-                border: 1px solid rgba(255, 0, 64, 0.3);
+                border: 1px solid rgba(176, 119, 88, 0.28);
             `;
             
             document.body.appendChild(notification);
@@ -1293,6 +1535,54 @@
 
         // Mostrar notificações aleatórias
         setInterval(showNotification, 18000);
+
+
+        function playMySong() {
+            const backgroundMusic = document.getElementById('bg-music');
+            const myMusic = document.getElementById('my-music');
+            const overlay = document.getElementById('musicVideoOverlay');
+            const video = document.getElementById('loopVideo');
+
+            if (backgroundMusic) {
+                backgroundMusic.pause();
+                backgroundMusic.currentTime = 0;
+            }
+
+            overlay.classList.add('show');
+
+            if (video) {
+                video.muted = true;
+                video.currentTime = 0;
+                video.play().catch(() => {});
+            }
+
+            if (myMusic) {
+                myMusic.currentTime = 0;
+                myMusic.play().catch(() => {
+                    alert('Toque novamente no botão para iniciar a música ❤️');
+                });
+            }
+
+            createHeartExplosion();
+        }
+
+        function closeMySong() {
+            const myMusic = document.getElementById('my-music');
+            const overlay = document.getElementById('musicVideoOverlay');
+            const video = document.getElementById('loopVideo');
+
+            if (myMusic) {
+                myMusic.pause();
+                myMusic.currentTime = 0;
+            }
+
+            if (video) {
+                video.pause();
+                video.currentTime = 0;
+            }
+
+            overlay.classList.remove('show');
+        }
 
         // Sistema de música ambiente visual (dark theme)
         function createSoundWave() {
@@ -1303,7 +1593,7 @@
                 left: 20px;
                 width: 4px;
                 height: ${Math.random() * 50 + 10}px;
-                background: linear-gradient(to top, #ff0040, #ffd700);
+                background: linear-gradient(to top, #d88c8c, #d9a85c);
                 border-radius: 2px;
                 animation: sound-wave 0.5s ease-in-out infinite alternate;
                 margin-right: 2px;
@@ -1381,7 +1671,7 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                background: linear-gradient(45deg, #ff0040, #990026);
+                background: linear-gradient(45deg, #d88c8c, #8f5f4a);
                 color: white;
                 padding: 20px 30px;
                 border-radius: 15px;
@@ -1390,7 +1680,7 @@
                 box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
                 animation: achievement-popup 3s ease-in-out forwards;
                 backdrop-filter: blur(10px);
-                border: 2px solid rgba(255, 0, 64, 0.3);
+                border: 2px solid rgba(176, 119, 88, 0.28);
             `;
             
             document.body.appendChild(achievement);
